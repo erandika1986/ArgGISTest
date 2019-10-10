@@ -12,17 +12,28 @@
 // ACTION TYPES //
 export const types = {
   MAP_LOADED: "MAP_LOADED",
-  SET_FEATURES: "SET_FEATURES"
+  SET_FEATURES: "SET_FEATURES",
+  ADD :"ADD_SEARCH_RESULT"
 };
 
 // REDUCERS //
 export const initialState = {
   loaded: false,
-  features: []
+  features: [],
+  searchValues :[]
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+
+    case types.ADD:
+
+    console.log(state.searchValues)
+    return {
+      ...state,
+      searchValues: state.searchValues.concat(action.value)     
+    };
+
     case types.MAP_LOADED:
       return {
         ...state,

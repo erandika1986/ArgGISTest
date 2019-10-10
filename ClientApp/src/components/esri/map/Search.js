@@ -18,8 +18,10 @@ export default class Search extends Component {
             <section id="search" className="section section-search white darken-1 white-text center scrollspy">
             <div className="container">
               <div className="row">
-                <div className="col s12">
-                <div onClick={this.handleSearch} ref={this.inputRef} id="expandDiv"></div>
+                <div id="expandDiv" className="col s12">
+              
+
+                
 
                   {/* <div class="input-field">
                   <i  class="material-icons black-text">menu <input type="text" class="white grey-text" placeholder="Search Here"/></i>                

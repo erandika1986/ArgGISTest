@@ -3,7 +3,7 @@
  
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 60% !important;
     height: 100%;
     z-index: -1;
     text-align: right;
@@ -12,8 +12,12 @@
     
 }
 
-.static {
-    position: static !important;
+.position-relative.div.div {
+    position: relative !important;
+}
+
+#dockerId{
+    background-color: red;
 }
 
 .mapWrapper{
@@ -36,4 +40,10 @@
 
 ul{
     white-space: nowrap
+}
+
+.searchResults{
+    border: 5px thick black;
+    margin: 1rem;
+    text-decoration: underline;
 }

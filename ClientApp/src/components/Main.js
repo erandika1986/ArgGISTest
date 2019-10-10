@@ -27,11 +27,13 @@ import TopNavLink from 'calcite-react/TopNav/TopNavLink';
 
 import SceneViewExample from './esri/map/SceneViewExample';
 
+import M from 'materialize-css'
+import 'materialize-css/dist/css/materialize.min.css'
+
 import Map from './esri/map/Map';
 
 // Styled Components
 import styled from 'styled-components';
-
 
 import Dock  from 'react-dock'
 import Search from '../components/esri/map/Search'
@@ -48,12 +50,13 @@ const MapWrapper = styled.div`
 
 // Class
 class Main extends Component {
- 
+
+
   render() {
     let dockStyle = {
-      minWidth: "1rem",
+      minWidth: "10rem",
       maxWidth: "30rem",
-      width: "50px",
+      width: "0px",
       height: "100%",
       backgroundColor: "white",
       zIndex :0
@@ -61,34 +64,64 @@ class Main extends Component {
         
     return (
       <>
-      
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col s2">
-              <Search/>       
-          </div>
-          <div className="col s10">
-              <p> &lt;&lt;&lt; Search widgetSearch Results!!</p>
-              <ul>
-              </ul>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col s3 position-relative">
+            <Dock id="dockerId" dockStyle={dockStyle} position='left' isVisible={true}>
+                <div>
+                  <Search/>
+              </div>
+              <div className="searchResults">
+                Search Results
+                <br></br>
+                <ul>
+                {
+
+                  
+  
+                     this.props.map.searchValues.length >0 ?
+                     (
+                        
+                         this.props.map.searchValues.map((searchValue,count=0)=>{
+                                return (
+                                <li key={count++}>{searchValue.text}</li>
+                                )
+                         })
+                         
+                     )
+                     
+                     :
+                     <span>No Search Results</span>
+                 }
+                </ul>
+              
+                
+              </div>
+            </Dock>
+            </div>
+                <div className="col s9">
+
+               </div>
           </div>
         </div>
-       </div>
+        <Map className="esriMapContainer" id="mapID"
+                  onMapLoaded={this.props.mapLoaded}
+                  mapConfig={this.props.config.mapConfig}
+                  is3DScene={false}
+                />
 
-        <Container className="container">     
+             
+
+         {/* <Container className="container">     
               <MapWrapper id="mapWra" className="mapWrapper">
-                <Map id="mapID"
+              <Map id="mapID"
                   onMapLoaded={this.props.mapLoaded}
                   mapConfig={this.props.config.mapConfig}
                   is3DScene={false}
                 />
             </MapWrapper>
-            </Container>
-
-           
-
+            </Container> */}
       
-
       </>
 
     )
@@ -99,6 +132,7 @@ const mapStateToProps = state => ({
   map: state.map,
   auth: state.auth,
   config: state.config,
+  
 })
 
 const mapDispatchToProps = function (dispatch) {
