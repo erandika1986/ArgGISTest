@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/react-boot/static/css/main.18637566.chunk.css",
+    "main.js": "/react-boot/static/js/main.5fb51994.chunk.js",
+    "main.js.map": "/react-boot/static/js/main.5fb51994.chunk.js.map",
+    "runtime-main.js": "/react-boot/static/js/runtime-main.4e146bbf.js",
+    "runtime-main.js.map": "/react-boot/static/js/runtime-main.4e146bbf.js.map",
+    "static/css/2.6ab7affb.chunk.css": "/react-boot/static/css/2.6ab7affb.chunk.css",
+    "static/js/2.0ccafcf7.chunk.js": "/react-boot/static/js/2.0ccafcf7.chunk.js",
+    "static/js/2.0ccafcf7.chunk.js.map": "/react-boot/static/js/2.0ccafcf7.chunk.js.map",
+    "index.html": "/react-boot/index.html",
+    "precache-manifest.c24bd2735e2976e010e7ba71ac10f727.js": "/react-boot/precache-manifest.c24bd2735e2976e010e7ba71ac10f727.js",
+    "service-worker.js": "/react-boot/service-worker.js",
+    "static/css/2.6ab7affb.chunk.css.map": "/react-boot/static/css/2.6ab7affb.chunk.css.map",
+    "static/css/main.18637566.chunk.css.map": "/react-boot/static/css/main.18637566.chunk.css.map",
+    "static/media/Esri-React-Logo.svg": "/react-boot/static/media/Esri-React-Logo.6cc603f4.svg",
+    "static/media/fonts.css": "/react-boot/static/media/Montserrat-ThinItalic.3cb62113.ttf",
+    "static/media/Topo-Abs-BG.svg": "/react-boot/static/media/Topo-Abs-BG.052b93cf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e146bbf.js",
+    "static/css/2.6ab7affb.chunk.css",
+    "static/js/2.0ccafcf7.chunk.js",
+    "static/css/main.18637566.chunk.css",
+    "static/js/main.5fb51994.chunk.js"
+  ]
+}
