@@ -48,62 +48,96 @@ const MapWrapper = styled.div`
 `;
 
 
-// Class
+
 class Main extends Component {
 
+ state={
+   visiblity : true
+ }
+
+ handleVisiblity=()=>{
+
+  console.log('hi')
+   this.setState({
+     visiblity: !this.state.visiblity,
+     maxW : "30rem",
+     minW : "3rem",
+   })
+ }
+
+ onSizeChange=()=>{
+
+    this.setState({
+      visiblity : true
+    })
+
+ }
+  onClickSearch=(graphic)=>{
+ 
+
+  }
 
   render() {
     let dockStyle = {
-      minWidth: "10rem",
-      maxWidth: "30rem",
-      width: "0px",
+      minWidth: "3rem",
+      maxWidth: this.state.visiblity?this.state.maxW : this.state.minW,
+      width: this.state.visiblity?this.state.maxW : this.state.minW,
       height: "100%",
       backgroundColor: "white",
       zIndex :0
     }
+
         
     return (
       <>
+
+
         <div className="container-fluid">
           <div className="row">
-            <div className="col s3 position-relative">
-            <Dock id="dockerId" dockStyle={dockStyle} position='left' isVisible={true}>
-                <div>
-                  <Search/>
-              </div>
-              <div className="searchResults">
+            <div className="col s3">
+            <Dock onSizeChange={this.onSizeChange} id="dockerId" dimMode="none" fluid={true} dockStyle={dockStyle} position='left' isVisible={true}>
+                
+            <div onClick={this.handleVisiblity} className="arrows right-align vl" >
+              <span><i  className="material-icons" >arrow_back</i></span>
+              <span><i  className="material-icons" >arrow_forward</i></span>   
+            </div>
+
+        <div className={this.state.visiblity ? 'row searchBar show' : 'row searchBar hide' }>
+          <div className="col s1"> <i className="material-icons prefix">menu</i></div>
+          <div className={this.state.visiblity ? 'col s11 searchBar show' : 'col s11 searchBar hide' } id="expandDiv"></div>
+        </div>
+    
+            
+             
+              </Dock>
+           
+              
+
+              {/* <div className="searchResults">
                 Search Results
                 <br></br>
                 <ul>
                 {
-
-                  
-  
-                     this.props.map.searchValues.length >0 ?
+                   this.props.map.searchValues.length >0 ?
                      (
-                        
-                         this.props.map.searchValues.map((searchValue,count=0)=>{
+                        this.props.map.searchValues.map((searchValue,count=0)=>{
                                 return (
-                                <li key={count++}>{searchValue.text}</li>
+                                <li onClick={this.onClickSearch.bind(this,searchValue.graphic)} key={count++}>{searchValue.text}</li>
                                 )
                          })
                          
                      )
-                     
                      :
                      <span>No Search Results</span>
                  }
                 </ul>
-              
-                
-              </div>
-            </Dock>
-            </div>
-                <div className="col s9">
+             </div> */}
 
-               </div>
+            
+            </div>
           </div>
         </div>
+        
         <Map className="esriMapContainer" id="mapID"
                   onMapLoaded={this.props.mapLoaded}
                   mapConfig={this.props.config.mapConfig}

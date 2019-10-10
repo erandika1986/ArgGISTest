@@ -33,9 +33,7 @@
 }
 
 #expandDiv{
-    z-index: 50;
-    width: 20%;
-    
+    z-index: 50;   
 }
 
 ul{
@@ -46,4 +44,12 @@ ul{
     border: 5px thick black;
     margin: 1rem;
     text-decoration: underline;
+}
+
+.arrows:hover{
+    cursor:pointer
+}
+
+.searchBar{
+    width: 100%;
 }

@@ -65,11 +65,7 @@ class Map extends Component {
       <>
       
       <Container ref="mapDiv" id={containerID}></Container>
-      <div id="zoomDiv">zoom</div>
-      {
-        console.log(this.props.searchValues)
-      }
-      
+     
       </>
     );
   }
@@ -134,10 +130,14 @@ class Map extends Component {
 
       const basemapGallery = new BasemapGallery({
         view: this.view,
+        
        
       });
 
-      var url = "https://api-adresse.data.gouv.fr/";
+
+
+      var url =  "https://api-adresse.data.gouv.fr/";
+      //SingleLine=Malabe%20North%2C%20LKA&f=json
      
       var customSearchSource = new SearchSource({
         placeholder: "Search Here",
@@ -161,7 +161,6 @@ class Map extends Component {
             // Return Suggestion results to display
             // in the Search widget
             return results.data.features.map(feature=> {
-
               return {
                 key: "name",
                 text: feature.properties.label,
@@ -192,10 +191,10 @@ class Map extends Component {
             responseType: "json"
           }).then(results=> {
             // Parse the results of your custom search
-           
-            var searchResults = results.data.features.map(feature=> {
+            let graphic;
+            let searchResults = results.data.features.map(feature=> {
               // Create a Graphic the Search widget can display
-              var graphic = new Graphic({
+               graphic = new Graphic({
                 geometry: new Point({
                   x: feature.geometry.coordinates[0],
                   y: feature.geometry.coordinates[1]
@@ -204,13 +203,13 @@ class Map extends Component {
               });
               // Optionally, you can provide an extent for
               // a point result, so the view can zoom to it
-              var buffer = geometryEngine.geodesicBuffer(
+              let buffer = geometryEngine.geodesicBuffer(
                 graphic.geometry,
                 100,
                 "meters"
               );
               // Return a Search Result
-              var searchResult = {
+              let searchResult = {
                 extent: buffer.extent,
                 feature: graphic,
                 name: feature.properties.label
@@ -221,6 +220,7 @@ class Map extends Component {
             });
 
             let searchObj={
+              graphic:graphic,
               text : params.suggestResult.text,
               searchData : searchResults[0]
             }
@@ -236,20 +236,23 @@ class Map extends Component {
         sources :[customSearchSource],
          view: this.view,
          includeDefaultSources:false,
-          container : document.createElement("div"),
+          container : "expandDiv",
           
       })
 
-      let searchExpand= new Expand({
-        view : this.view,
-        content : searchWidget.domNode,
-        container : "expandDiv",
-        expandIconClass : "esri-icon-basemap"
-      })
+               
+      let  zoomhWidget = new Zoom({
+        view: this.view,
+        container : document.createElement("div"),
+        
+    })
 
-      // this.view.ui.add(searchWidget, {
-      //   position: "top-right"
-      // });
+    this.view.ui.add(zoomhWidget, {
+      position: "bottom-right"
+    });
+
+
+    
 
     });
   }
