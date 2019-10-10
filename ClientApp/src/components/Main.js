@@ -52,24 +52,39 @@ const MapWrapper = styled.div`
 class Main extends Component {
 
  state={
-   visiblity : true
+   fullyloaded: false,
+   visiblity : true,
+   maxW : "30rem",
+   minW : "0.1rem",
+ }
+
+ componentDidMount(){
+   this.setState({
+     fullyloaded:true
+   })
+
  }
 
  handleVisiblity=()=>{
 
-  console.log('hi')
    this.setState({
      visiblity: !this.state.visiblity,
-     maxW : "30rem",
-     minW : "3rem",
+ 
    })
  }
 
- onSizeChange=()=>{
+ onSizeChange=(event)=>{
+
+  console.log(event)
+
+   if(this.state.visiblity){
 
     this.setState({
-      visiblity : true
+      maxW : "30rem"
     })
+
+   }
+   
 
  }
   onClickSearch=(graphic)=>{
@@ -79,11 +94,10 @@ class Main extends Component {
 
   render() {
     let dockStyle = {
-      minWidth: "3rem",
+      minWidth: "0.3rem",
       maxWidth: this.state.visiblity?this.state.maxW : this.state.minW,
-      width: this.state.visiblity?this.state.maxW : this.state.minW,
+      width : this.state.visiblity?this.state.maxW : this.state.minW,
       height: "100%",
-      backgroundColor: "white",
       zIndex :0
     }
 
@@ -95,16 +109,19 @@ class Main extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col s3">
-            <Dock onSizeChange={this.onSizeChange} id="dockerId" dimMode="none" fluid={true} dockStyle={dockStyle} position='left' isVisible={true}>
+            <Dock slow={true} className="gray lighten-2" onSizeChange={this.onSizeChange} id="dockerId" dimMode="none" fluid={true} dockStyle={dockStyle} position='left' isVisible={true}>
                 
-            <div onClick={this.handleVisiblity} className="arrows right-align vl" >
-              <span><i  className="material-icons" >arrow_back</i></span>
-              <span><i  className="material-icons" >arrow_forward</i></span>   
-            </div>
+        
 
-        <div className={this.state.visiblity ? 'row searchBar show' : 'row searchBar hide' }>
-          <div className="col s1"> <i className="material-icons prefix">menu</i></div>
-          <div className={this.state.visiblity ? 'col s11 searchBar show' : 'col s11 searchBar hide' } id="expandDiv"></div>
+            <div onClick={this.handleVisiblity} id="icons">
+            <ul>
+                <li className={this.state.visiblity ? 'valign-wrapper show' : 'valign-wrapper hide' } ><i className="material-icons">arrow_back</i></li>
+                <li className={this.state.visiblity ? 'valign-wrapper hide' : 'valign-wrapper show' }><i className="material-icons">arrow_forward</i></li>
+            </ul>
+        </div>
+
+        <div className={this.state.visiblity ? 'row show space' : 'row hide space' }>
+          <div className={this.state.visiblity && this.state.fullyloaded ? 'col s12 show searchBar' : 'col s12  hide searchBar' } id="expandDiv"></div>
         </div>
     
             
