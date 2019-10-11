@@ -51,10 +51,12 @@ ul{
 }
 
 .searchBar{
-    width: 100%;
+   
+    width: 90% !important;
     border: 2px solid white;
-    padding: 5px;
+    padding: 1px;
     margin: 1rem;
+    margin-left: 15px !important;
     border-radius: 20px;
     background-color: white;
     -moz-box-shadow: 0 0 3px #ccc;

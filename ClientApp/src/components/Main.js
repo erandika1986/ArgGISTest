@@ -59,6 +59,8 @@ class Main extends Component {
  }
 
  componentDidMount(){
+
+
    this.setState({
      fullyloaded:true
    })
@@ -120,7 +122,7 @@ class Main extends Component {
             </ul>
         </div>
 
-        <div className={this.state.visiblity ? 'row show space' : 'row hide space' }>
+        <div className={this.state.visiblity && this.state.fullyloaded ? 'row show space' : 'row hide space' }>
           <div className={this.state.visiblity && this.state.fullyloaded ? 'col s12 show searchBar' : 'col s12  hide searchBar' } id="expandDiv"></div>
         </div>
     
