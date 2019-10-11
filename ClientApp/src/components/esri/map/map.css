@@ -33,7 +33,9 @@
 }
 
 #expandDiv{
-    z-index: 50;   
+    z-index: 50;  
+    margin-left: 20%; 
+    margin-top :30px;
 }
 
 ul{
@@ -96,4 +98,8 @@ ul{
 
 .row{
     margin-bottom: 0 !important;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }

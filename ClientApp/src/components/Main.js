@@ -99,8 +99,14 @@ class Main extends Component {
       minWidth: "0.3rem",
       maxWidth: this.state.visiblity?this.state.maxW : this.state.minW,
       width : this.state.visiblity?this.state.maxW : this.state.minW,
-      height: "100%",
-      zIndex :0
+      height: "95%",
+      marginTop: "10px",
+      marginBottom: "10px",
+      zIndex :0,
+      borderRadius: "25px",
+      overflowX:"hidden !important",
+      boxShadow: "10px 0 5px -2px #888 !important",
+      
     }
 
         
@@ -111,7 +117,7 @@ class Main extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col s3">
-            <Dock slow={true} className="gray lighten-2" onSizeChange={this.onSizeChange} id="dockerId" dimMode="none" fluid={true} dockStyle={dockStyle} position='left' isVisible={true}>
+            <Dock dockStyle={dockStyle} onSizeChange={this.onSizeChange} id="dockerId" dimMode="none" fluid={true}  isVisible={true}>
                 
         
 
@@ -122,9 +128,11 @@ class Main extends Component {
             </ul>
         </div>
 
-        <div className={this.state.visiblity && this.state.fullyloaded ? 'row show space' : 'row hide space' }>
+        {/* <div className={this.state.visiblity && this.state.fullyloaded ? 'row show space' : 'row hide space' }>
           <div className={this.state.visiblity && this.state.fullyloaded ? 'col s12 show searchBar' : 'col s12  hide searchBar' } id="expandDiv"></div>
-        </div>
+        </div> */}
+
+        <div id="expandDiv"></div>
     
             
              

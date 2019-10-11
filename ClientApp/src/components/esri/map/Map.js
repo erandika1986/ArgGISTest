@@ -140,7 +140,7 @@ class Map extends Component {
       //SingleLine=Malabe%20North%2C%20LKA&f=json
      
       var customSearchSource = new SearchSource({
-        placeholder: "Search Here",
+        placeholder: "Find Address or Place",
         // Provide a getSuggestions method
         // to provide suggestions to the Search widget
         getSuggestions: params => {
