@@ -96,7 +96,7 @@ class Main extends Component {
 
   render() {
     let dockStyle = {
-      minWidth: "0.3rem",
+      minWidth: "0.1rem",
       maxWidth: this.state.visiblity?this.state.maxW : this.state.minW,
       width : this.state.visiblity?this.state.maxW : this.state.minW,
       height: "95%",
@@ -124,8 +124,8 @@ class Main extends Component {
 
             <div onClick={this.handleVisiblity} id="icons">
             <ul>
-                <li className={this.state.visiblity ? 'valign-wrapper show' : 'valign-wrapper hide' } ><i className="material-icons">arrow_back</i></li>
-                <li className={this.state.visiblity ? 'valign-wrapper hide' : 'valign-wrapper show' }><i className="material-icons">arrow_forward</i></li>
+                <li className={this.state.visiblity ? 'valign-wrapper center-align show' : 'center-align valign-wrapper hide' } ><i className="material-icons">arrow_back</i></li>
+                <li className={this.state.visiblity ? 'valign-wrapper center-align hide' : 'center-align valign-wrapper show' }><i className="material-icons">arrow_forward</i></li>
             </ul>
         </div>
 

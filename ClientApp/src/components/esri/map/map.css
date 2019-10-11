@@ -101,7 +101,8 @@ ul{
     list-style-type: none;
 }
 #icons li {
-    width: 42px;
+    text-align: center;
+    width: 45px;
     height: 68px;
     background: #E8E8E8;
     margin: 0;
