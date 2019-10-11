@@ -103,7 +103,8 @@ class Main extends Component {
       marginTop: "10px",
       marginBottom: "10px",
       zIndex :0,
-      borderRadius: "25px",
+      borderBottomLeftRadius: "25px",
+      borderBottomRightRadius: "25px",
       overflowX:"hidden !important",
       boxShadow: "10px 0 5px -2px #888 !important",
       
